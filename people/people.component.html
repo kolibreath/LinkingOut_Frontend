@@ -1,0 +1,45 @@
+<nz-layout class="layout">
+
+
+  <!--个人信息-->
+  <nz-content style="padding:0 50px; width: 70%; margin: auto; position: relative; top: 20px;left: 0; right: 0;">
+    <div style="background-image:url('http://www.wallcoo.com/nature/Apple_OSX_Mountain_Lion_Secret_Wallpapers/wallpapers/3200x2000/Cosmos02.jpg'); padding: 24px; min-height: 280px;">
+    </div>
+  </nz-content>
+  <nz-content style="padding:0 50px; width: 70%; height:30%;margin: auto; position: relative; top: 20px;left: 0; right: 0;">
+    <div style="background:#fff; padding: 24px; min-height: 150px; margin-top: 10px;">
+      <img style="height: 100px;float: left;" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=111156100,1754237809&fm=27&gp=0.jpg">
+      <h1 style="margin-top: 15px; position: relative; left: 30px; width: 400px;">{{people.username}}</h1>
+      <p style="position:relative; left: 30px; width: 400px;">{{people.introduction}}</p>
+      <a routerLink="/edit">
+      <button nz-button nzType="primary" nzShape="circle" style="position: absolute;right: 110px;bottom: 30px;">
+        <i class="anticon anticon-edit"></i>
+      </button>
+      </a>
+    </div>
+  </nz-content>
+
+
+  <!--动态模块-->
+  <nz-content style="padding:0 50px; width: 70%; margin: auto; position: relative; top: 20px;
+  left: 0; right: 0;">
+    <div style="background:#fff; padding: 24px; min-height: 150px;">
+    <nz-tabset>
+      <nz-tab *ngFor="let tab of tabs" [nzTitle]="titleTemplate">
+        <ng-template #titleTemplate>
+          <i [ngClass]="tab.icon"></i>{{ tab.name }}
+        </ng-template>
+        <h2>{{ tab.name }}</h2  >
+          <nz-timeline>
+            <nz-timeline-item *ngFor="let content of contents">{{content.activity}}</nz-timeline-item>
+          </nz-timeline>
+      </nz-tab>
+    </nz-tabset>
+    </div>
+  </nz-content>
+
+
+  <nz-footer style="text-align: center;">Sao Design ©2018 Implement By Angular</nz-footer>
+
+
+</nz-layout>

@@ -1,0 +1,138 @@
+<nz-layout style="background:#EEF2F3" class="layout">
+
+
+    <nz-content style="padding:0 50px; width: 70%; margin: auto; position: relative; top: 20px;left: 0; right: 0;">
+      <div style="background-image:url('http://www.wallcoo.com/nature/Apple_OSX_Mountain_Lion_Secret_Wallpapers/wallpapers/3200x2000/Cosmos02.jpg'); padding: 24px; min-height: 280px;">
+      </div>
+    </nz-content>
+
+
+  <nz-content style="padding:0 50px; width: 70%; margin: auto; position: relative; top: 20px;
+  left: 0; right: 0;">
+    <!--编辑面板-->
+    <div style="margin-top: 10px; background:#fff; min-height: 300px;">
+      <div style="width: 85%; margin: 0 auto;">
+        <nz-list [nzItemLayout]="'horizontal'">
+          <!--昵称-->
+          <nz-list-item>
+              <div>
+                <span style="font-size: 20px">昵称:</span>
+              <span *ngIf="!editOnUsername" style="font-size: 20px;margin-left: 10px;">{{username}}</span>
+            </div>
+            <input on-blur="edit(1)" *ngIf="editOnUsername" nz-input pceholder="Basic usage" [(ngModel)]="username" style="width: 150px; border: 0;font-size: 20px;">
+            <button *ngIf="!editOnUsername" style="margin-left: 15px;" (click)="edit(1)" nz-button nzType="primary" nzGhost="true" nzSize="small"
+              nzShape="circle">
+              <i class="anticon anticon-edit"></i>
+            </button>
+            <button *ngIf="editOnUsername" style="margin-left: 15px;" (click)="edit(1)" nz-button nzType="primary" nzGhost="true" nzSize="small"
+              nzShape="circle">
+              <i class="anticon anticon-check"></i>
+            </button>
+          </nz-list-item>
+
+          <!--性别-->
+          <nz-list-item>
+            <span style="font-size: 20px">性别:</span>
+            <span *ngIf="!editOnSex" style="font-size: 20px;margin-left: 10px;">{{sex}}</span>
+            <div *ngIf="editOnSex">
+              <nz-radio-group [(ngModel)]="sex" [nzSize]="'large'">
+                <label nz-radio-button nzValue="男">
+                  <i class="anticon anticon-man"></i>
+                </label>
+                <label nz-radio-button nzValue="女">
+                  <i class="anticon anticon-woman"></i>
+                </label>
+              </nz-radio-group>
+            </div>
+            <button *ngIf="!editOnSex" style="margin-left: 15px;" (click)="edit(2)" nz-button nzType="primary" nzGhost="true" nzSize="small"
+              nzShape="circle">
+              <i class="anticon anticon-edit"></i>
+            </button>
+            <button *ngIf="editOnSex" style="margin-left: 15px;" (click)="edit(2)" nz-button nzType="primary" nzGhost="true" nzSize="small"
+              nzShape="circle">
+              <i class="anticon anticon-check"></i>
+            </button>
+          </nz-list-item>
+
+          <!-- 个性签名 -->
+          <nz-list-item>
+            <span style="font-size: 20px">个性签名:</span>
+            <span *ngIf="!editOnIntroduction" style="font-size: 20px;margin-left: 10px;">{{introduction}}</span>
+            <input *ngIf="editOnIntroduction" nz-input pceholder="Basic usage" [(ngModel)]="introduction" style="width: 500px; border: 0;font-size: 20px;">
+            <button *ngIf="!editOnIntroduction" style="margin-left: 15px;" (click)="edit(3)" nz-button nzType="primary" nzGhost="true"
+              nzSize="small" nzShape="circle">
+              <i class="anticon anticon-edit"></i>
+            </button>
+            <button *ngIf="editOnIntroduction" style="margin-left: 15px;" (click)="edit(3)" nz-button nzType="primary" nzGhost="true"
+              nzSize="small" nzShape="circle">
+              <i class="anticon anticon-check"></i>
+            </button>
+          </nz-list-item>
+
+          <!--兴趣爱好-->
+          <nz-list-item>
+            <span style="font-size: 20px">兴趣爱好:</span>
+            <span *ngIf="!editOnHobby" style="font-size: 20px;margin-left: 10px;">{{hobby}}</span>
+            <input *ngIf="editOnHobby" nz-input pceholder="Basic usage" [(ngModel)]="hobby" style="width: 500px; border: 0;font-size: 20px;">
+            <button *ngIf="!editOnHobby" style="margin-left: 15px;" (click)="edit(4)" nz-button nzType="primary" nzGhost="true" nzSize="small"
+              nzShape="circle">
+              <i class="anticon anticon-edit"></i>
+            </button>
+            <button *ngIf="editOnHobby" style="margin-left: 15px;" (click)="edit(4)" nz-button nzType="primary" nzGhost="true" nzSize="small"
+              nzShape="circle">
+              <i class="anticon anticon-check"></i>
+            </button>
+          </nz-list-item>
+
+          <!--邮箱-->
+          <nz-list-item>
+            <span style="font-size: 20px">邮箱地址:</span>
+            <span *ngIf="!editOnEmail" style="font-size: 20px;margin-left: 10px;">{{email}}</span>
+            <input *ngIf="editOnEmail" nz-input pceholder="Basic usage" [(ngModel)]="email" style="width: 500px; border: 0;font-size: 20px;">
+            <button *ngIf="!editOnEmail" style="margin-left: 15px;" (click)="edit(5)" nz-button nzType="primary" nzGhost="true" nzSize="small"
+              nzShape="circle">
+              <i class="anticon anticon-edit"></i>
+            </button>
+            <button *ngIf="editOnEmail" style="margin-left: 15px;" (click)="edit(5)" nz-button nzType="primary" nzGhost="true" nzSize="small"
+              nzShape="circle">
+              <i class="anticon anticon-check"></i>
+            </button>
+          </nz-list-item>
+
+          <!--大学-->
+          <nz-list-item>
+            <span style="font-size: 20px">所在大学:</span>
+            <span *ngIf="!editOnUniversity" style="font-size: 20px;margin-left: 10px;">{{university}}</span>
+            <input *ngIf="editOnUniversity" nz-input pceholder="Basic usage" [(ngModel)]="university" style="width: 500px; border: 0;font-size: 20px;">
+            <button *ngIf="!editOnUniversity" style="margin-left: 15px;" (click)="edit(6)" nz-button nzType="primary" nzGhost="true" nzSize="small"
+                    nzShape="circle">
+              <i class="anticon anticon-edit"></i>
+            </button>
+            <button *ngIf="editOnUniversity" style="margin-left: 15px;" (click)="edit(6)" nz-button nzType="primary" nzGhost="true" nzSize="small"
+                    nzShape="circle">
+              <i class="anticon anticon-check"></i>
+            </button>
+          </nz-list-item>
+
+          <!--专业-->
+          <nz-list-item>
+            <span style="font-size: 20px">所在专业:</span>
+            <span *ngIf="!editOnMajor" style="font-size: 20px;margin-left: 10px;">{{major}}</span>
+            <input *ngIf="editOnMajor" nz-input pceholder="Basic usage" [(ngModel)]="major" style="width: 500px; border: 0;font-size: 20px;">
+            <button *ngIf="!editOnMajor" style="margin-left: 15px;" (click)="edit(7)" nz-button nzType="primary" nzGhost="true" nzSize="small"
+                    nzShape="circle">
+              <i class="anticon anticon-edit"></i>
+            </button>
+            <button *ngIf="editOnMajor" style="margin-left: 15px;" (click)="edit(7)" nz-button nzType="primary" nzGhost="true" nzSize="small"
+                    nzShape="circle">
+              <i class="anticon anticon-check"></i>
+            </button>
+          </nz-list-item>
+
+        </nz-list>
+      </div>
+    </div>
+
+  </nz-content>
+  <nz-footer style="text-align: center;">Sao Design ©2018 By Angular</nz-footer>
+</nz-layout>
